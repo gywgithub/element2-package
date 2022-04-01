@@ -1,41 +1,43 @@
 <template>
-    <div>
-        <!-- elementui -->
-        <!-- 方案1 -->
-        <!-- <el-button
+  <div>
+    <!-- elementui -->
+    <!-- 方案1 -->
+    <!-- <el-button
          v-bind="$attrs"
          v-on="$listeners">
-            {{ btnContent }}
+            {{ content }}
         </el-button> -->
-        <!-- 方案二 -->
-        <el-button
-         :size="btnConfig.size"
-         :type="btnConfig.type"
-         :plain="btnConfig.plain"
-         :round="btnConfig.round"
-         :circle="btnConfig.circle"
-         :loading="btnConfig.loading"
-         :disabled="btnConfig.disabled"
-         :icon="btnConfig.icon"
-         :autofocus="btnConfig.autofocus"
-         :native-type="btnConfig.nativeType">
-            {{ btnContent }}
-        </el-button>
-    </div>
+    <!-- 方案二 -->
+    <el-button
+      :size="config.size"
+      :type="config.type"
+      :plain="config.plain"
+      :round="config.round"
+      :circle="config.circle"
+      :loading="config.loading"
+      :disabled="config.disabled"
+      :icon="config.icon"
+      :autofocus="config.autofocus"
+      :native-type="config.nativeType"
+    >
+      <!-- {{ content }} -->
+      <slot></slot>
+    </el-button>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Input',
-    props: {
-        btnContent: {
-            type: String,
-            default: '按钮'
-        },
-        btnConfig: {
-            type: Object,
-            default: () => {}
-        }
-    }
-}
+  name: "Button",
+  props: {
+    content: {
+      type: String,
+      default: "按钮",
+    },
+    config: {
+      type: Object,
+      default: () => {},
+    },
+  },
+};
 </script>

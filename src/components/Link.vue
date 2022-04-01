@@ -1,28 +1,29 @@
 <template>
-    <div>
-        <el-link
-         :type="linkConfig.type"
-         :underline="linkConfig.underline"
-         :disabled="linkConfig.disabled"
-         :href="linkConfig.href"
-         :icon="linkConfig.icon">
-            {{ linkContent }}
-        </el-link>
-    </div>
+  <div>
+    <el-link
+      :type="config.type"
+      :underline="config.underline"
+      :disabled="config.disabled"
+      :href="config.href"
+      :icon="config.icon"
+    >
+      <slot></slot>
+    </el-link>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Link',
-    props: {
-        linkContent: {
-            type: String,
-            default: '123'
-        },
-        linkConfig: {
-            type: Object,
-            default: () => {}
-        }
-    }
-}
+  name: "Link",
+  props: {
+    content: {
+      type: String,
+      default: "123",
+    },
+    config: {
+      type: Object,
+      default: () => {},
+    },
+  },
+};
 </script>
