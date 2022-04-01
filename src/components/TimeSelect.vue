@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-time-picker
+    <el-time-select
       v-model="config.value"
       :picker-options="config.pickerOptions"
       :placeholder="config.placeholder"
@@ -15,31 +15,25 @@
       :name="config.name"
       :prefix-icon="config.prefixIcon"
       :clear-icon="config.clearIcon"
-      :arrow-control="config.arrowControl"
-      :start-placeholder="config.startPlaceholder"
-      :end-placeholder="config.endPlaceholder"
-      :is-range="config.isRange"
-      :range-separator="config.rangeSeparator"
-      :value-format="config.valueFormat"
       v-on="$listeners"
     >
-      {{ content }}
-    </el-time-picker>
+      {{ timeSelectContent }}
+    </el-time-select>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TimePicker",
+  name: 'TimeSelect',
   props: {
-    content: {
+    timeSelectContent: {
       type: String,
-      default: "",
+      default: ''
     },
     config: {
       type: Object,
-      default: () => {},
-    },
-  },
-  };
+      default: () => { }
+    }
+  }
+}
 </script>

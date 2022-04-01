@@ -58,7 +58,7 @@
       </template>
 		</Input>
 		<Vue1 />
-		<Vue2 />
+		<!-- <Vue2 /> -->
   </div>
 </template>
 
@@ -67,26 +67,26 @@ import Button from './components/Button.vue';
 import Link from './components/Link.vue';
 import RadioGroup from './components/RadioGroup.vue';
 import Checkbox from './components/Checkbox.vue';
-// import CheckboxGroup from './components/CheckboxGroup.vue';
-// import TimePicker from './components/TimePicker.vue';
+import CheckboxGroup from './components/CheckboxGroup.vue';
+import TimePicker from './components/TimePicker.vue';
 import Input from './components/Input.vue';
-// import Vue1 from './Vue1.vue';
+import TimeSelect from './components/TimeSelect.vue';
+import Vue1 from './Vue1.vue';
 // import Vue2 from './Vue2.vue';
-// import TimeSelect from './components/TimeSelect.vue';
 
 export default {
   name: 'App',
   components: {
-		// Vue1,
+		Vue1,
 		// Vue2,
     Button,
     Link,
     RadioGroup,
     Checkbox,
-    // CheckboxGroup,
-		// TimePicker,
+    CheckboxGroup,
+		TimePicker,
 		Input,
-    // TimeSelect,
+    TimeSelect,
   },
   data() {
     return {
