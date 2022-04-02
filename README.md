@@ -18,3 +18,7 @@ yarn install
 ```
 yarn serve
 ```
+or
+```
+yarn dev
+```
