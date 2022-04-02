@@ -1,50 +1,49 @@
 <template>
   <div>
-    <el-radio-group
+    <el-checkbox-group
       v-model="config.value"
+      :min="config.min"
+      :max="config.max"
+      :size="config.size"
       :text-color="config.textColor"
       :fill="config.fill"
-      :size="config.size"
-      :disabled="config.disabled"
       v-on="$listeners"
     >
       <template v-if="!config.isButton">
-        <el-radio
+        <el-checkbox
           v-for="(item, index) in content"
           :key="index"
-          :value="item.value"
           :label="item.label"
           :disabled="item.disabled"
           :border="item.border"
-          :size="item.size"
           :name="item.name"
+          :checked="item.checked"
+          :indeterminate="item.indeterminate"
         >
-          {{ item.content }}
-        </el-radio>
+          {{ item.label }}
+        </el-checkbox>
       </template>
       <template v-else>
-        <el-radio-button
+        <el-checkbox-button
           v-for="(item, index) in content"
           :key="index"
-          :value="item.value"
           :label="item.label"
           :disabled="item.disabled"
           :border="item.border"
-          :size="item.size"
           :name="item.name"
-          :text-color="item.textColor"
-          :fill="item.fill"
+          :checked="item.checked"
+          :indeterminate="item.indeterminate"
         >
-          {{ item.content }}
-        </el-radio-button>
+          {{ item.label }}
+        </el-checkbox-button>
       </template>
-    </el-radio-group>
+    </el-checkbox-group>
   </div>
 </template>
 
 <script>
 export default {
-  name: "RadioGroup",
+  name: "CheckboxGroup",
   props: {
     config: {
       type: Object,

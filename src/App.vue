@@ -15,7 +15,6 @@ import LetfPage from './Views/LeftPage.vue';
 import CenterPage from './Views/CenterPage.vue';
 import RightPage from './Views/RightPage.vue';
 
-
 export default {
   name: 'App',
   components: {
@@ -25,7 +24,6 @@ export default {
   },
   data () {
     return {
-     
     }
   }
 }
