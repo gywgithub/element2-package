@@ -54,6 +54,7 @@
         </Button>
       </template>
     </Input>
+    <Vue1 />
   </div>
 </template>
 
@@ -62,11 +63,11 @@ import Button from '../components/Button.vue';
 import Link from '../components/Link.vue';
 import RadioGroup from '../components/RadioGroup.vue';
 import Checkbox from '../components/Checkbox.vue';
-import TimePicker from '../components/TimePicker.vue'
-
+import TimePicker from '../components/TimePicker.vue';
 import CheckboxGroup from '../components/CheckboxGroup.vue';
 import Input from '../components/Input.vue';
 import TimeSelect from '../components/TimeSelect.vue';
+import Vue1 from '../Vue1.vue';
 export default {
   name: '',
   components: {
@@ -77,7 +78,8 @@ export default {
     TimePicker,
     CheckboxGroup,
     Input,
-    TimeSelect
+    TimeSelect,
+    Vue1
   },
   data () {
     return {
