@@ -26,15 +26,12 @@
 
 <script>
 export default {
-  name: "CbfCascader",
+  name: "Cascader",
   props: {
     config: {
       type: Object,
       default: () => {},
     }
-  },
-  mounted() {
-    // console.log('$scopedSlots', this.$scopedSlots)
   }
 };
 </script>
