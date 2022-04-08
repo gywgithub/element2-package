@@ -42,6 +42,11 @@
         <span v-if="!scope.node.isLeaf"> ({{ scope.data.children.length }}) </span>
       </template>
     </Cascader>
+    <h2 class="mt10">CascaderPanel级联面板</h2>
+    <Cascader-panel
+      :config="cascader.config"
+      v-model="cascader.config.value">
+    </Cascader-panel>
     <div style="margin: 20px 0">--- Vue1 End ---</div>
   </div>
 </template>
@@ -53,6 +58,7 @@ import Option from "./components/select/Option.vue";
 import SwitchUI from "./components/Switch.vue";
 import Slider from "./components/Slider.vue";
 import Cascader from "./components/Cascader.vue";
+import CascaderPanel from "./components/CascaderPanel.vue";
 
 export default {
   name: "Vue1",
@@ -63,6 +69,7 @@ export default {
     SwitchUI,
     Slider,
     Cascader,
+    CascaderPanel,
   },
   data() {
     return {
