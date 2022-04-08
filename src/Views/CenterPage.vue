@@ -1,16 +1,33 @@
 <template>
   <div>
-    <h2>Upload 上传</h2>
+    <h2 class="mt10">Upload 上传</h2>
     <upload :config="upload.config" :content="upload.content"> </upload>
+    <h2 class="mt10">Rate 评分</h2>
+    <rate
+      :config="rate.config"
+      :content="rate.content"
+      v-model="rate.config.value"
+      @change="rateHandleChange"
+    ></rate>
+    <h2 class="mt10">ColorPicker 颜色选择器</h2>
+    <color-picker
+      :config="colorPicker.config"
+      @change="colorPickerHandleChange"
+      v-model="colorPicker.config.value"
+    ></color-picker>
   </div>
 </template>
 
 <script>
 import Upload from '../components/Upload.vue'
+import Rate from '../components/Rate.vue'
+import ColorPicker from '../components/ColorPicker.vue'
 export default {
   name: '',
   components: {
-    Upload
+    Upload,
+    Rate,
+    ColorPicker
   },
   props: {
   },
@@ -43,7 +60,33 @@ export default {
           },
         },
       },
+      rate: {
+        content: "",
+        config: {
+          value: null,
+        },
+      },
+      colorPicker: {
+        config: {
+          value: "#409EFF",
+        },
+      },
     }
+  },
+  methods: {
+    // Rate change
+    rateHandleChange (score) {
+      console.log("score: ", score);
+    },
+    // Color Picker change
+    colorPickerHandleChange (value) {
+      console.log("color picker chagne ", value);
+    },
   }
 }
 </script>
+<style scoped>
+.mt10 {
+  margin-bottom: 10px;
+}
+</style>

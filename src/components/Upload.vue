@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'CBFUpload',
+  name: 'Upload',
   props: {
     content: {
       type: String,
