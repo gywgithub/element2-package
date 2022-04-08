@@ -47,6 +47,15 @@
       :config="cascader.config"
       v-model="cascader.config.value">
     </Cascader-panel>
+    <h2 class="mt10">Tag标签</h2>
+    <Tag
+      :config="tag.config"
+      :content="tag.content">
+    </Tag>
+    <h2 class="mt10">Progress进度条</h2>
+    <Progress
+      :config="progress.config">
+    </Progress>
     <div style="margin: 20px 0">--- Vue1 End ---</div>
   </div>
 </template>
@@ -59,6 +68,8 @@ import SwitchUI from "./components/Switch.vue";
 import Slider from "./components/Slider.vue";
 import Cascader from "./components/Cascader.vue";
 import CascaderPanel from "./components/CascaderPanel.vue";
+import Tag from "./components/Tag.vue";
+import Progress from "./components/Progress.vue";
 
 export default {
   name: "Vue1",
@@ -70,6 +81,8 @@ export default {
     Slider,
     Cascader,
     CascaderPanel,
+    Tag,
+    Progress
   },
   data() {
     return {
@@ -311,6 +324,21 @@ export default {
           props: {
             expandTrigger: 'hover',
           }
+        }
+      },
+      // Tag标签
+      tag: {
+        content: '测试1',
+        config: {
+          type: 'warning',
+          size: 'small'
+        }
+      },
+      // Progress进度条
+      progress: {
+        config: {
+          percentage: 80,
+          type: 'circle'
         }
       },
     };
