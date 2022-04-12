@@ -56,6 +56,15 @@
     <Progress
       :config="progress.config">
     </Progress>
+    <h2 class="mt10">Pagination分页</h2>
+    <Pagination
+      :config="pagination.config">
+    </Pagination>
+    <h2 class="mt10">Badge标记</h2>
+    <Badge
+      :config="badge.config">
+      <div>测试</div>
+    </Badge>
     <div style="margin: 20px 0">--- Vue1 End ---</div>
   </div>
 </template>
@@ -70,6 +79,9 @@ import Cascader from "./components/Cascader.vue";
 import CascaderPanel from "./components/CascaderPanel.vue";
 import Tag from "./components/Tag.vue";
 import Progress from "./components/Progress.vue";
+import Pagination from "./components/Pagination.vue";
+import Badge from "./components/Badge.vue";
+
 
 export default {
   name: "Vue1",
@@ -82,7 +94,9 @@ export default {
     Cascader,
     CascaderPanel,
     Tag,
-    Progress
+    Progress,
+    Pagination,
+    Badge
   },
   data() {
     return {
@@ -339,6 +353,21 @@ export default {
         config: {
           percentage: 80,
           type: 'circle'
+        }
+      },
+      // Pagination分页
+      pagination: {
+        config: {
+          background: true,
+          total: 1000,
+          layout: 'prev, pager, next, jumper, ->, total, slot'
+          
+        }
+      },
+      // Badge标记
+      badge: {
+        config: {
+          value: 'mark'
         }
       },
     };
