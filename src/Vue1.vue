@@ -42,6 +42,29 @@
         <span v-if="!scope.node.isLeaf"> ({{ scope.data.children.length }}) </span>
       </template>
     </Cascader>
+    <h2 class="mt10">CascaderPanel级联面板</h2>
+    <Cascader-panel
+      :config="cascader.config"
+      v-model="cascader.config.value">
+    </Cascader-panel>
+    <h2 class="mt10">Tag标签</h2>
+    <Tag
+      :config="tag.config"
+      :content="tag.content">
+    </Tag>
+    <h2 class="mt10">Progress进度条</h2>
+    <Progress
+      :config="progress.config">
+    </Progress>
+    <h2 class="mt10">Pagination分页</h2>
+    <Pagination
+      :config="pagination.config">
+    </Pagination>
+    <h2 class="mt10">Badge标记</h2>
+    <Badge
+      :config="badge.config">
+      <div>测试</div>
+    </Badge>
     <div style="margin: 20px 0">--- Vue1 End ---</div>
   </div>
 </template>
@@ -53,6 +76,12 @@ import Option from "./components/select/Option.vue";
 import SwitchUI from "./components/Switch.vue";
 import Slider from "./components/Slider.vue";
 import Cascader from "./components/Cascader.vue";
+import CascaderPanel from "./components/CascaderPanel.vue";
+import Tag from "./components/Tag.vue";
+import Progress from "./components/Progress.vue";
+import Pagination from "./components/Pagination.vue";
+import Badge from "./components/Badge.vue";
+
 
 export default {
   name: "Vue1",
@@ -63,6 +92,11 @@ export default {
     SwitchUI,
     Slider,
     Cascader,
+    CascaderPanel,
+    Tag,
+    Progress,
+    Pagination,
+    Badge
   },
   data() {
     return {
@@ -304,6 +338,36 @@ export default {
           props: {
             expandTrigger: 'hover',
           }
+        }
+      },
+      // Tag标签
+      tag: {
+        content: '测试1',
+        config: {
+          type: 'warning',
+          size: 'small'
+        }
+      },
+      // Progress进度条
+      progress: {
+        config: {
+          percentage: 80,
+          type: 'circle'
+        }
+      },
+      // Pagination分页
+      pagination: {
+        config: {
+          background: true,
+          total: 1000,
+          layout: 'prev, pager, next, jumper, ->, total, slot'
+          
+        }
+      },
+      // Badge标记
+      badge: {
+        config: {
+          value: 'mark'
         }
       },
     };
