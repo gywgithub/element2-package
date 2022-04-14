@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>--------------------vue3 start-----------------</h1>
     <div class="div">
       <h2>导航菜单</h2>
       <el-radio-group
@@ -66,8 +65,6 @@
       <h2>Steps</h2>
       <steps :config="steps.config" :content="steps.content"></steps>
     </div>
-    <h1>--------------------vue3 end-----------------</h1>
-    <div class="div"></div>
   </div>
 </template>
 
