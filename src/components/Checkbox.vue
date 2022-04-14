@@ -1,33 +1,52 @@
 <template>
-    <div>
-        <el-checkbox
-         v-model="checkboxConfig.value"
-         :true-label="checkboxConfig.trueLabel"
-         :false-label="checkboxConfig.falseLabel"
-         :disabled="checkboxConfig.disabled"
-         :border="checkboxConfig.border"
-         :size="checkboxConfig.size"
-         :name="checkboxConfig.name"
-         :checked="checkboxConfig.checked"
-         :indeterminate="checkboxConfig.indeterminate"
-         v-on="$listeners">
-            {{ checkboxContent }}
-        </el-checkbox>
-    </div>
+  <div>
+    <template v-if="!config.isButton">
+      <el-checkbox
+        v-model="config.value"
+        :true-label="config.trueLabel"
+        :false-label="config.falseLabel"
+        :disabled="config.disabled"
+        :border="config.border"
+        :size="config.size"
+        :name="config.name"
+        :checked="config.checked"
+        :indeterminate="config.indeterminate"
+        v-on="$listeners"
+      >
+        {{ content }}
+      </el-checkbox>
+    </template>
+    <template v-else>
+      <el-checkbox-button
+        v-model="config.value"
+        :true-label="config.trueLabel"
+        :false-label="config.falseLabel"
+        :disabled="config.disabled"
+        :border="config.border"
+        :size="config.size"
+        :name="config.name"
+        :checked="config.checked"
+        :indeterminate="config.indeterminate"
+        v-on="$listeners"
+      >
+        {{ content }}
+      </el-checkbox-button>
+    </template>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Checkbox',
-    props: {
-        checkboxContent: {
-            type: String,
-            default: ''
-        },
-        checkboxConfig: {
-            type: Object,
-            default: () => {}
-        }
-    }
-}
+  name: "Checkbox",
+  props: {
+    content: {
+      type: String,
+      default: "",
+    },
+    config: {
+      type: Object,
+      default: () => {},
+    },
+  },
+};
 </script>
