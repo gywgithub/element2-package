@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'CbcDropdown',
+  name: 'Dropdown',
   props: {
     config: {
       type: Object,

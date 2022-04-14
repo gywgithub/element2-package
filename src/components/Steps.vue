@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'CbfSteps',
+  name: 'Steps',
   props: {
     config: {
       type: Object,

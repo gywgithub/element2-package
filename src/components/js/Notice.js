@@ -1,7 +1,7 @@
 import { Message, MessageBox, Loading } from 'element-ui';
 
  // MESSAGE
-export function CbfMessage(options = {}) {
+export function Messages(options = {}) {
   const obj = {
     iconClass: options.iconClass,
     type: options.type ? options.type : 'info',
@@ -22,22 +22,22 @@ export function CbfMessage(options = {}) {
 }
 
 //  MESSAGEBOX
-export function CbfConfirm( message, title, options = {}) {
+export function Confirm( message, title, options = {}) {
       const obj = messageOptions(options);
       return MessageBox.confirm(message, title, obj);
 }
 
-export function CbfAlert( message, title, options = {}) {
+export function Alert( message, title, options = {}) {
   const obj = messageOptions(options);
       return MessageBox.alert(message, title, obj);
 }
 
-export function CbfPrompt( message, title, options = {}) {
+export function Prompt( message, title, options = {}) {
   const obj = messageOptions(options);
   return MessageBox.prompt(message, title, obj);
 }
 
-export function CbfMsgbox(options = {}) {
+export function Msgbox(options = {}) {
   const obj = messageOptions(options);
   return MessageBox.msgbox(obj);
 }
@@ -97,7 +97,7 @@ function messageOptions(options){
 
 // LOADING
 let loadingInstance = null;
-export const CbfOpenLoading = function(options = {}) {
+export const OpenLoading = function(options = {}) {
   const obj = {
     target: options.target ? options.target : document.body,
     body: options.body ? options.body : false,
@@ -111,7 +111,7 @@ export const CbfOpenLoading = function(options = {}) {
   loadingInstance = Loading.service(obj);
 };
 
-export const CbfCloseLoading = function() {
+export const CloseLoading = function() {
   if (loadingInstance) {
     loadingInstance.close();
   }

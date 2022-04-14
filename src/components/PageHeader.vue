@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'CbcPageHeader',
+  name: 'PageHeader',
   props: {
     config: {
         type: Object,
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$emit('cbfGoBack')
+      this.$emit('GoBack')
     }
   }
 };

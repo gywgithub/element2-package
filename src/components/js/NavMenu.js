@@ -1,4 +1,4 @@
-export const CbcNavMenuLists = [
+export const NavMenuLists = [
   {
     index: '/article',
     title: '内容',

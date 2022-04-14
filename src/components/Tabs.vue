@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'CbcTabs',
+  name: 'Tabs',
   props: {
     config: {
       type: Object,

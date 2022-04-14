@@ -63,7 +63,7 @@
 
 <script>
 export default {
-  name: 'CbfNavMenu',
+  name: 'NavMenu',
   props: {
     config: {
       type: Object,
@@ -98,14 +98,14 @@ export default {
         key,
         keyPath
       };
-      this.$emit('CbfHandleOpen', obj);
+      this.$emit('HandleOpen', obj);
     },
     handleClose(key, keyPath) {
       let obj = {
         key,
         keyPath
       };
-      this.$emit('CbfHandleClose', obj);
+      this.$emit('HandleClose', obj);
     },
     menuSelect(){
       
