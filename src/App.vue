@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <vue3 />
     <h2>按钮</h2>
     <Button
      :btnContent="btn.btnContent"
@@ -37,6 +38,7 @@ import Link from './components/Link.vue';
 import RadioGroup from './components/RadioGroup.vue';
 import Checkbox from './components/Checkbox.vue';
 import TimePicker from './components/TimePicker.vue'
+import Vue3 from './Vue3.vue'
 
 export default {
   name: 'App',
@@ -45,7 +47,8 @@ export default {
     Link,
     RadioGroup,
     Checkbox,
-    TimePicker
+    TimePicker,
+    Vue3
   },
   data() {
     return {
