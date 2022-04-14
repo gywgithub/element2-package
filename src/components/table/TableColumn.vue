@@ -47,7 +47,7 @@
 
 <script>
 export default {
-  name: 'CBFTableColumn',
+  name: 'TableColumn',
   props: {
     content: {
       type: String,

@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: 'CBFTable',
+  name: 'Table',
   props: {
     content: {
       type: String,
