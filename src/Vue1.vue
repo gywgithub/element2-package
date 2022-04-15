@@ -65,6 +65,41 @@
       :config="badge.config">
       <div>测试</div>
     </Badge>
+    <h2 class="mt10">Tree树形控件</h2>
+    <Tree
+      :config="tree.config">
+      <!-- <span slot-scope="scope">
+        <span>{{ scope.node.label }}</span>
+        <span>
+          <el-button
+            type="text"
+            size="mini"
+            @click="() => append(scope.data)">
+            Append
+          </el-button>
+          <el-button
+            type="text"
+            size="mini"
+            @click="() => remove(scope.node, scope.data)">
+            Delete
+          </el-button>
+        </span>
+      </span> -->
+    </Tree>
+    <h2 class="mt10">Dialog对话框</h2>
+    <Dialog
+      :config="dialog.config"
+      @close="closeDialog">
+      <template #title>
+        <p>标题123</p>
+      </template>
+      <!-- <p slot="title">标题1234</p> -->
+      <span>需要注意的是内容是默认不居中的</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialog.config.visible = false">取 消</el-button>
+        <el-button type="primary" @click="dialog.config.visible = false">确 定</el-button>
+      </span>
+    </Dialog>
     <div style="margin: 20px 0">--- Vue1 End ---</div>
   </div>
 </template>
@@ -81,6 +116,8 @@ import Tag from "./components/Tag.vue";
 import Progress from "./components/Progress.vue";
 import Pagination from "./components/Pagination.vue";
 import Badge from "./components/Badge.vue";
+import Tree from "./components/Tree.vue";
+import Dialog from "./components/Dialog.vue";
 
 
 export default {
@@ -96,7 +133,9 @@ export default {
     Tag,
     Progress,
     Pagination,
-    Badge
+    Badge,
+    Tree,
+    Dialog
   },
   data() {
     return {
@@ -370,7 +409,71 @@ export default {
           value: 'mark'
         }
       },
+      // Tree树形控件
+      tree: {
+        config: {
+          nodeKey: 'id',
+          data: [{
+            id: 100,
+            label: '一级 1',
+            children: [{
+              id: 4,
+              label: '二级 1-1',
+              children: [{
+                id: 9,
+                label: '三级 1-1-1'
+              }, {
+                id: 10,
+                label: '三级 1-1-2'
+              }]
+            }]
+          }, {
+            id: 2,
+            label: '一级 2',
+            children: [{
+              id: 5,
+              label: '二级 2-1'
+            }, {
+              id: 6,
+              label: '二级 2-2'
+            }]
+          }, {
+            id: 3,
+            label: '一级 3',
+            children: [{
+              id: 7,
+              label: '二级 3-1'
+            }, {
+              id: 8,
+              label: '二级 3-2',
+              children: [{
+              id: 11,
+                label: '三级 3-2-1'
+              }, {
+                id: 12,
+                label: '三级 3-2-2'
+              }, {
+                id: 13,
+                label: '三级 3-2-3'
+              }]
+            }]
+          }],
+        }
+      },
+      // Dialog对话框
+      dialog: {
+        config: {
+          visible: true,
+          title: '标题1'
+        }
+      },
     };
   },
+  methods: {
+    // Dialog 关闭对话框回调
+    closeDialog() {
+      console.log('关闭Dialog');
+    },
+  }
 };
 </script>
