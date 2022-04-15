@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="div">
+    <div class="div" ref="cbfNavMenu">
       <h2>导航菜单</h2>
       <el-radio-group
         v-model="navMenu.config.collapse"
@@ -10,34 +10,34 @@
         <el-radio-button :label="true">收起</el-radio-button>
       </el-radio-group>
       <!-- nav-menu  -->
-      <nav-menu
+      <Nav-menu
         ref="NavMenu"
         :config="navMenu.config"
         :content="navMenu.content"
         @HandleOpen="navMenuOpen"
         @HandleClose="navMenuClose"
       >
-      </nav-menu>
+      </Nav-menu>
     </div>
     <div class="div">
       <h2>TABS</h2>
-      <tabs :config="tabs.config" :content="tabs.content">
+      <Tabs :config="tabs.config" :content="tabs.content">
         <slot>我是123</slot>
-      </tabs>
+      </Tabs>
     </div>
     <div class="div">
       <h2>面包屑</h2>
-      <breadcrumb
+      <Breadcrumb
         :config="breadcrumb.config"
         :content="breadcrumb.content"
-      ></breadcrumb>
+      ></Breadcrumb>
     </div>
     <div class="div">
       <h2>页头</h2>
-      <page-header
+      <Page-header
         :config="pageHeader.config"
         :content="pageHeader.content"
-      ></page-header>
+      ></Page-header>
     </div>
     <div class="div">
       <h2>Messages</h2>
@@ -55,15 +55,36 @@
     </div>
     <div class="div">
       <h2>下拉菜单dropdown</h2>
-      <dropdown :config="dropDown.config" :content="dropDown.content">
-      </dropdown>
+      <Dropdown :config="dropDown.config" :content="dropDown.content">
+      </Dropdown>
     </div>
     <div class="div">
       <el-button @click="openMessageBox()">MessageBox</el-button>
     </div>
     <div class="div">
       <h2>Steps</h2>
-      <steps :config="steps.config" :content="steps.content"></steps>
+      <Steps :config="steps.config" :content="steps.content"></Steps>
+    </div>
+    <div class="div">
+      <h2>calendar</h2>
+      <Calendar :config="calendar.config"> </Calendar>
+    </div>
+    <div class="div">
+      <h2>timeline</h2>
+      <Timeline>
+        <timeline-item :content="timelineItem.content">
+          <template v-slot:default="timelineItemSlots">
+            {{ timelineItemSlots.timeLineItem.content }}
+          </template>
+        </timeline-item>
+      </Timeline>
+    </div>
+    <div class="div">
+      <Back-top :config="backtop.config">
+        <el-button type="danger">
+          回到顶部
+        </el-button>
+      </Back-top>
     </div>
   </div>
 </template>
@@ -82,6 +103,10 @@ import PageHeader from '../components/PageHeader';
 import Dropdown from '../components/Dropdown';
 import { NavMenuLists } from '../components/js/NavMenu';
 import Steps from '../components/Steps';
+import Calendar from '../components/Calendar';
+import Timeline from '../components/Timeline';
+import TimelineItem from '../components/TimelineItem';
+import BackTop from '../components/BackTop';
 
 export default {
   name: 'vue3',
@@ -91,7 +116,11 @@ export default {
     Breadcrumb,
     PageHeader,
     Dropdown,
-    Steps
+    Steps,
+    Calendar,
+    Timeline,
+    TimelineItem,
+    BackTop
   },
   data() {
     return {
@@ -168,7 +197,7 @@ export default {
       steps: {
         config: {
           active: 2,
-          direction: "horizontal",
+          direction: 'horizontal',
           simple: true
         },
         content: [
@@ -177,6 +206,49 @@ export default {
           { title: '结账', icon: 'el-icon-picture' },
           { title: '送达', icon: 'el-icon-picture' }
         ]
+      },
+      calendar: {
+        config: {
+          value: new Date(),
+          range: ['2022-03-28', '2022-05-01']
+        }
+      },
+      timeLine: {
+        reverse: true
+      },
+      timelineItem: {
+        content: [
+          {
+            content: '支持使用图标',
+            timestamp: '2018-04-12 20:46',
+            size: 'large',
+            type: 'primary',
+            icon: 'el-icon-more'
+          },
+          {
+            content: '支持自定义颜色',
+            timestamp: '2019-05-03 21:46',
+            color: '#0bbd87'
+          },
+          {
+            content: '支持自定义尺寸',
+            timestamp: '2020-06-09 10:46',
+            size: 'large'
+          },
+          {
+            content: '默认样式的节点',
+            timestamp: '2022-04-15 05:46',
+            color: '#f08025'
+          }
+        ]
+      },
+      backtop: {
+        config: {
+          target: this.$refs.cbfNavMenu,
+          visibilityHeight: 600,
+          bottom: 150,
+          right: 100
+        }
       }
     };
   },
