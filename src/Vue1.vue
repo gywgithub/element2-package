@@ -86,6 +86,20 @@
         </span>
       </span> -->
     </Tree>
+    <h2 class="mt10">Dialog对话框</h2>
+    <Dialog
+      :config="dialog.config"
+      @close="closeDialog">
+      <template #title>
+        <p>标题123</p>
+      </template>
+      <!-- <p slot="title">标题1234</p> -->
+      <span>需要注意的是内容是默认不居中的</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialog.config.visible = false">取 消</el-button>
+        <el-button type="primary" @click="dialog.config.visible = false">确 定</el-button>
+      </span>
+    </Dialog>
     <div style="margin: 20px 0">--- Vue1 End ---</div>
   </div>
 </template>
@@ -103,6 +117,7 @@ import Progress from "./components/Progress.vue";
 import Pagination from "./components/Pagination.vue";
 import Badge from "./components/Badge.vue";
 import Tree from "./components/Tree.vue";
+import Dialog from "./components/Dialog.vue";
 
 
 export default {
@@ -120,6 +135,7 @@ export default {
     Pagination,
     Badge,
     Tree,
+    Dialog
   },
   data() {
     return {
@@ -444,7 +460,20 @@ export default {
           }],
         }
       },
+      // Dialog对话框
+      dialog: {
+        config: {
+          visible: true,
+          title: '标题1'
+        }
+      },
     };
   },
+  methods: {
+    // Dialog 关闭对话框回调
+    closeDialog() {
+      console.log('关闭Dialog');
+    },
+  }
 };
 </script>
