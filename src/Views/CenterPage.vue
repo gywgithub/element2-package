@@ -67,6 +67,46 @@
         </template>
       </table-column>
     </c-table>
+
+    <h2>Layout布局 el-row el-col</h2>
+    <c-row :config="row.config">
+      <c-col :config="col.config">
+        <div style="border: 2px solid red; height: 50px"></div>
+      </c-col>
+      <c-col :config="col.config">
+        <div style="border: 2px solid green; height: 50px"></div>
+      </c-col>
+    </c-row>
+    <h2>Container布局容器 el-container el-header el-footer el-main el-aside</h2>
+    <c-container :config="container.config" style="border: 2px solid red">
+      <c-header :config="header.config" style="border: 2px solid green"
+        >Header</c-header
+      >
+      <c-container :config="container2.config" style="border: 2px solid orange">
+        <c-aside :config="aside.config" style="border: 2px solid black"
+          >Aside</c-aside
+        >
+        <c-main style="border: 2px solid pink">Main</c-main>
+      </c-container>
+      <c-footer :config="footer.config" style="border: 2px solid blue"
+        >Footer</c-footer
+      >
+    </c-container>
+    <h2>Drawer 抽屉</h2>
+    <button
+      :content="drawerButton.content"
+      :config="drawerButton.config"
+      @click="drawerHandle"
+    ></button>
+    <drawer :config="drawer.config">
+      <span>我来啦!</span>
+    </drawer>
+    <h2>scrollbar 内置滚动条组件</h2>
+    <scrollbar style="border: 2px solid red; height: 100px">
+      <div style="border: 2px solid green; height: 200px">
+        div height: 200px
+      </div>
+    </scrollbar>
   </div>
 </template>
 
@@ -77,6 +117,17 @@ import ColorPicker from "../components/ColorPicker.vue";
 // Table
 import CTable from "../components/table/Index.vue";
 import TableColumn from "../components/table/TableColumn.vue";
+// 布局
+import CRow from '../components/Row.vue'
+import CCol from '../components/Col.vue'
+import CContainer from '../components/container/Container.vue'
+import CAside from '../components/container/Aside.vue'
+import CFooter from '../components/container/Footer.vue'
+import CHeader from '../components/container/Header.vue'
+import CMain from '../components/container/Main.vue'
+import Drawer from '../components/Drawer.vue'
+import Scrollbar from '../components/Scrollbar.vue'
+
 
 export default {
   name: "",
@@ -86,6 +137,15 @@ export default {
     ColorPicker,
     CTable,
     TableColumn,
+    CRow,
+    CCol,
+    CContainer,
+    CHeader,
+    CFooter,
+    CAside,
+    CMain,
+    Drawer,
+    Scrollbar
   },
   props: {},
   data () {
@@ -286,6 +346,55 @@ export default {
           },
         ],
       },
+      row: {
+        config: {
+          gutter: 20
+        }
+      },
+      col: {
+        config: {
+          span: 12
+        }
+      },
+      container: {
+        config: {
+          direction: 'vertical'
+        }
+      },
+      container2: {
+        config: {
+          direction: 'horizontal '
+        }
+      },
+      header: {
+        config: {
+          height: '80px'
+        }
+      },
+      aside: {
+        config: {
+          width: '200px'
+        }
+      },
+      footer: {
+        config: {
+          height: '70px'
+        }
+      },
+      drawerButton: {
+        content: "点我打开",
+        config: {}
+      },
+      drawer: {
+        config: {
+          title: '标题001',
+          visible: false,
+          beforeClose: (done) => {
+            console.log('before-close')
+            done()
+          }
+        }
+      }
     };
   },
   methods: {
@@ -300,6 +409,9 @@ export default {
     handleSelectClick (data) {
       console.log(data);
     },
+    drawerHandle () {
+      this.drawer.config.visible = true
+    }
   },
 };
 </script>
