@@ -463,7 +463,7 @@ export default {
       // Dialog对话框
       dialog: {
         config: {
-          visible: true,
+          visible: false,
           title: '标题1'
         }
       },
