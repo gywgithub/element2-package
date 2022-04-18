@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div style="margin: 20px 0">--- Vue1 ---</div>
     <h2 class="mt10">InputNumber计数器</h2>
     <InputNumber
       :config="inputNumber.config">
@@ -100,7 +99,12 @@
         <el-button type="primary" @click="dialog.config.visible = false">确 定</el-button>
       </span>
     </Dialog>
-    <div style="margin: 20px 0">--- Vue1 End ---</div>
+    <h2 class="mt10">Tooltip文字提示</h2>
+    <Tooltip
+      :config="tooltip.config">
+      <span>按钮</span>
+      <span slot="content">slot方式 {{ tooltip.config.content }}</span>
+    </Tooltip>
   </div>
 </template>
 
@@ -118,6 +122,7 @@ import Pagination from "./components/Pagination.vue";
 import Badge from "./components/Badge.vue";
 import Tree from "./components/Tree.vue";
 import Dialog from "./components/Dialog.vue";
+import Tooltip from "./components/Tooltip.vue";
 
 
 export default {
@@ -135,7 +140,8 @@ export default {
     Pagination,
     Badge,
     Tree,
-    Dialog
+    Dialog,
+    Tooltip
   },
   data() {
     return {
@@ -465,6 +471,13 @@ export default {
         config: {
           visible: false,
           title: '标题1'
+        }
+      },
+      // Tooltip文字提示
+      tooltip: {
+        config: {
+          effect: 'dark',
+          content: '打开'
         }
       },
     };
