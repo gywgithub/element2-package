@@ -105,6 +105,12 @@
       <span>按钮</span>
       <span slot="content">slot方式 {{ tooltip.config.content }}</span>
     </Tooltip>
+    <h2 class="mt10">Popover弹出框</h2>
+    <Popover
+      :config="popover.config">
+      <p>12333333</p>
+      <button slot="reference">hover 激活</button>
+    </Popover>
   </div>
 </template>
 
@@ -123,6 +129,7 @@ import Badge from "./components/Badge.vue";
 import Tree from "./components/Tree.vue";
 import Dialog from "./components/Dialog.vue";
 import Tooltip from "./components/Tooltip.vue";
+import Popover from "./components/Popover.vue";
 
 
 export default {
@@ -141,7 +148,8 @@ export default {
     Badge,
     Tree,
     Dialog,
-    Tooltip
+    Tooltip,
+    Popover,
   },
   data() {
     return {
@@ -478,6 +486,14 @@ export default {
         config: {
           effect: 'dark',
           content: '打开'
+        }
+      },
+      // Popover弹出框
+      popover: {
+        config: {
+          trigger: 'hover',
+          title: '标题',
+          content: '内容'
         }
       },
     };
