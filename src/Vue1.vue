@@ -111,6 +111,15 @@
       <p>12333333</p>
       <button slot="reference">hover 激活</button>
     </Popover>
+    <h2 class="mt10">Popconfirm气泡确认框</h2>
+    <Popconfirm
+      :config="popconfirm.config"
+      @cancel="cancelPopconfirm"
+      @confirm="confirmPopconfirm">
+      <template #reference>
+        <button>删除</button>
+      </template>
+    </Popconfirm>
   </div>
 </template>
 
@@ -130,6 +139,7 @@ import Tree from "./components/Tree.vue";
 import Dialog from "./components/Dialog.vue";
 import Tooltip from "./components/Tooltip.vue";
 import Popover from "./components/Popover.vue";
+import Popconfirm from "./components/Popconfirm.vue";
 
 
 export default {
@@ -150,6 +160,7 @@ export default {
     Dialog,
     Tooltip,
     Popover,
+    Popconfirm,
   },
   data() {
     return {
@@ -496,12 +507,28 @@ export default {
           content: '内容'
         }
       },
+      // Popconfirm气泡确认框
+      popconfirm: {
+        config: {
+          title: '?',
+          confirmButtonText: 'ok',
+          cancelButtonText: 'no'
+        }
+      },
     };
   },
   methods: {
     // Dialog 关闭对话框回调
     closeDialog() {
       console.log('关闭Dialog');
+    },
+    // Popconfirm 取消气泡确认框回调
+    cancelPopconfirm() {
+      console.log('popconfirm 取消');
+    },
+    // Popconfirm 确认气泡确认框回调
+    confirmPopconfirm() {
+      console.log('popconfirm 确认');
     },
   }
 };
